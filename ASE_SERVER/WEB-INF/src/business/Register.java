@@ -4,11 +4,11 @@ import mysql.Procedure;
 
 public class Register {
 
-	public void InsertUser(String username, String userpassword) {
+	public int InsertUser(String username, String userpassword) {
 		Procedure pro = new Procedure();
 		try {
 
-			pro.InsertUser(username, userpassword);
+			return pro.InsertUser(username, userpassword);
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -16,6 +16,6 @@ public class Register {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		return 0;
 	}
 }

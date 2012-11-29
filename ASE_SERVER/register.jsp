@@ -26,5 +26,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	
 	business.Register r=new business.Register();
-	r.InsertUser(uid,upw);
+	out.println(r.InsertUser(uid,upw));
  %>

@@ -172,16 +172,18 @@ public class Procedure {
 		}
 	}
 
-	public void InsertUser(String username, String userpassword)
+	public int InsertUser(String username, String userpassword)
 			throws InstantiationException, IllegalAccessException {
 		Connection conn = ConnectionPool.getInstance().getConnection();
 		CallableStatement cs = null;
 
 		try {
-			cs = conn.prepareCall("{call android.insertusers(?,?)}");
+			cs = conn.prepareCall("{call android.insertusers(?,?,?)}");
 			cs.setString(1, username);
 			cs.setString(2, userpassword);
+			cs.registerOutParameter(3, Types.INTEGER);
 			cs.execute();
+			return cs.getInt(3);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -196,6 +198,7 @@ public class Procedure {
 				ex.printStackTrace();
 			}
 		}
+		return 0;
 	}
 	
 	
