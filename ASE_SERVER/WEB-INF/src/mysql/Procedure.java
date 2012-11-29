@@ -172,6 +172,32 @@ public class Procedure {
 		}
 	}
 
+	public void InsertUser(String username, String userpassword)
+			throws InstantiationException, IllegalAccessException {
+		Connection conn = ConnectionPool.getInstance().getConnection();
+		CallableStatement cs = null;
+
+		try {
+			cs = conn.prepareCall("{call android.insertusers(?,?)}");
+			cs.setString(1, username);
+			cs.setString(2, userpassword);
+			cs.execute();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (cs != null) {
+					cs.close();
+				}
+				if (conn != null) {
+					ConnectionPool.getInstance().release(conn);
+				}
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		}
+	}
+	
 	
 	public void InsertCheckIn(String username, String shop_name)
 			throws InstantiationException, IllegalAccessException {

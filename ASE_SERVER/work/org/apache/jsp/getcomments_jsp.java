@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import java.util.*;
-import Util.*;
+//import Util.*;
 
 public final class getcomments_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
