@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import java.util.*;
-//import Util.*;
+import Util.*;
 
 public final class getcomments_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		ArrayList<model.Comment> al = c.getComments(shop_key);
 		for(int i=0;i<al.size();i++)
 		{
-			out.println(""+al.get(i).getUsername()+","+al.get(i).getContent()+","+al.get(i).getComentId()+";");
+			out.println(""+al.get(i).getUsername()+","+al.get(i).getContent()+","+al.get(i).getNlike()+","+al.get(i).getDislike()+","+al.get(i).getComentId()+";");
 		}
 	
  

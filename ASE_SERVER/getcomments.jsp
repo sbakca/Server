@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		ArrayList<model.Comment> al = c.getComments(shop_key);
 		for(int i=0;i<al.size();i++)
 		{
-			out.println(""+al.get(i).getUsername()+","+al.get(i).getContent()+","+al.get(i).getComentId()+";");
+			out.println(""+al.get(i).getUsername()+","+al.get(i).getContent()+","+al.get(i).getNlike()+","+al.get(i).getDislike()+","+al.get(i).getComentId()+";");
 		}
 	
  %>
